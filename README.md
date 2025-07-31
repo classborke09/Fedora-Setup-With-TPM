@@ -14,12 +14,15 @@ dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts
 ```
 **Third party packages**
 > **1password**
+
 https://support.1password.com/install-linux/#fedora-or-red-hat-enterprise-linux
 
 > **brave browser** if you don't browser-hop
+
 https://brave.com/linux/#fedora-41-dnf5
 
 > **visual studio code**
+
 https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions
 
 # Packages to remove
