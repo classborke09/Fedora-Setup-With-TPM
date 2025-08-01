@@ -28,6 +28,16 @@ https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-dis
 dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp totem rhythmbox evince gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
 ```
 
+**Electron Apps**
+> This is optional but I like wayland
+
+```
+vim /etc/environment
+```
+```
+ELECTRON_OZONE_PLATFORM_HINT=auto
+```
+
 ## Setup TPM2
 **Check if tpm chip and secure boot be enable**
 ```
