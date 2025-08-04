@@ -68,7 +68,7 @@ systemd-cryptenroll --recovery-key
 
 **Enroll TPM**
 ```
-systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid
+systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --wipe-slot=empty --tpm2-device=/dev/tpmrm0
 ```
 > Replace encryptpartitionuuid with encrypt drive's UUID, usually it's _/dev/nvme0n1p3_ if you use ssd
 
