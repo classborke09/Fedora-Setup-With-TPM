@@ -77,7 +77,7 @@ systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --wipe-slot=empty --t
 grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=/dev/tpmrm0"
 ```
 ```
-grub-mkconfig -o /boot/grub2/grub.cfg
+grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 **Crypttab**
