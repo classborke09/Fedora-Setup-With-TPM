@@ -62,7 +62,7 @@ lsblk -pf /dev/nvme0n1
 **Print recovery**
 > You gonna use this key to.. recover your luks device in case you being lock out
 ```
-systemd-cryptenroll --recovery-key
+systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --recovery-key
 ```
 > It will show the key with dashes and keep it somewhere safe!
 
