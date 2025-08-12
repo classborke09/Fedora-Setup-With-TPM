@@ -1,0 +1,69 @@
+#!/bin/bash
+
+## This script was update in Aug-11-2025.
+
+# Remind for system update
+read -p "Remember to update your system before use this script! (Y/N)? " prompt
+if [[ ! "$prompt" =~ ^[Yy]$ ]]; then
+	echo "OK, go update your system!"
+	exit 1
+fi
+
+# Ask UUID
+lsblk -o name,uuid
+echo " "
+echo "What is your luks drive UUID? Usually for fedora it's gonna be nvme0n1p3, nvme1n1p3 or sda3."
+
+read -p "UUID: " uuid
+
+# Ask for hostname
+echo "Name of your device?"
+
+read -p "Device's name: " hostname
+
+echo $hostname >> /etc/hostname
+
+## Initiate the script
+# Change to root user
+sudo -i
+
+# Add flathub repo
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# Add 1Password repo
+rpm --import https://downloads.1password.com/linux/keys/1password.asc
+sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
+
+# Add Brave browser repo
+dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+
+# Add Visual Code Studio repo
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo > /dev/null
+
+# Update and install essential packages
+dnf update
+dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk papers showtime gnome-tweaks flatseal htop vim adw-gtk3-theme 1password brave-browser code -y
+
+# Remove unnecessary packages
+dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp totem rhythmbox evince gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list -y
+
+# Switch electron apps from XWayland to Wayland
+echo "ELECTRON_OZONE_PLATFORM_HINT=auto" >> /etc/environment
+
+# Create recovery keys
+systemd-cryptenroll /dev/disk/by-uuid/$uuid --recovery-key
+
+# Enroll TPM keys
+systemd-cryptenroll /dev/disk/by-uuid/$uuid --wipe-slot=empty --tpm2-device=auto
+
+# Update Grub
+grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=auto"
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+# Update crypttab file
+sed -i "s/discard/tpm2-device=auto"
+
+# Add and update initramfs file
+echo 'add_dracutmodules+=" tpm2-tss "' > /etc/dracut.conf.d/tpm2.conf
+dracut -vf
