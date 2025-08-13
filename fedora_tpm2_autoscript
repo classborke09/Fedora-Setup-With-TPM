@@ -1,9 +1,11 @@
 #!/bin/bash
 
-## This script was update in Aug-11-2025.
+## This script was update in Aug-12-2025.
+
+username=$USER
 
 # Remind for system update
-read -p "Remember to update your system before use this script! (Y/N)? " prompt
+read -p "I assume that you already update your Fedora system before use this script? (Y/N) " prompt
 if [[ ! "$prompt" =~ ^[Yy]$ ]]; then
 	echo "OK, go update your system!"
 	exit 1
@@ -52,7 +54,12 @@ dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp totem rhyth
 echo "ELECTRON_OZONE_PLATFORM_HINT=auto" >> /etc/environment
 
 # Create recovery keys
-systemd-cryptenroll /dev/disk/by-uuid/$uuid --recovery-key
+systemd-cryptenroll /dev/disk/by-uuid/$uuid --recovery-key | tee /home/$username/Documents/tpm2-keys.txt
+
+echo "Your TPM key will be save in your Documents directory and the file name will be 'tpm2-keys.txt'."
+sleep 4
+echo "Remember to save it somewhere safe!"
+sleep 1
 
 # Enroll TPM keys
 systemd-cryptenroll /dev/disk/by-uuid/$uuid --wipe-slot=empty --tpm2-device=auto
@@ -67,3 +74,5 @@ sed -i "s/discard/tpm2-device=auto"
 # Add and update initramfs file
 echo 'add_dracutmodules+=" tpm2-tss "' > /etc/dracut.conf.d/tpm2.conf
 dracut -vf
+
+exit
