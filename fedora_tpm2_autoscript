@@ -18,16 +18,16 @@ echo "What is your luks drive UUID? Usually for fedora it's gonna be nvme0n1p3, 
 
 read -p "UUID: " uuid
 
+## Initiate the script
+# Change to root user
+sudo -i
+
 # Ask for hostname
 echo "Name of your device?"
 
 read -p "Device's name: " hostname
 
 echo $hostname >> /etc/hostname
-
-## Initiate the script
-# Change to root user
-sudo -i
 
 # Add flathub repo
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
