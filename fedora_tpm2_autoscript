@@ -24,7 +24,6 @@ echo "Name of your device?"
 read -p "Device's name: " hostname
 
 ## Change to root user
-
 sudo -i << EOF
 
 echo $hostname >> /etc/hostname
