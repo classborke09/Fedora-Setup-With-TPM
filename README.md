@@ -8,7 +8,7 @@ echo "yourhostname" >> /etc/hostname
 
 ## Packages to install
 ```
-dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk papers showtime gnome-tweaks flatseal htop vim adw-gtk3-theme gnome-shell-extension-connect
+dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk papers showtime gnome-tweaks flatseal htop vim adw-gtk3-theme gnome-shell-extension-connect --skip-unavailable
 ```
 **Third party packages**
 > **1password**
