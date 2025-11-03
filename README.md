@@ -8,12 +8,12 @@ echo "yourhostname" >> /etc/hostname
 
 ## Packages to install
 ```
-dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk papers showtime gnome-tweaks flatseal htop vim adw-gtk3-theme gnome-shell-extension-connect --skip-unavailable
+dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks flatseal htop vim adw-gtk3-theme --skip-unavailable
 ```
 
 ## Packages to remove
 ```
-dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp totem rhythmbox evince gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
+dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
 ```
 
 **Electron Apps**
