@@ -10,19 +10,7 @@ echo "yourhostname" >> /etc/hostname
 ```
 dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk papers showtime gnome-tweaks flatseal htop vim adw-gtk3-theme gnome-shell-extension-connect --skip-unavailable
 ```
-**Third party packages**
-> **1password**
 
-https://support.1password.com/install-linux/#fedora-or-red-hat-enterprise-linux
--------------------------------------------------------------------------------
-> **brave browser** if you don't browser-hop
-
-https://brave.com/linux/#fedora-41-dnf5
--------------------------------------------------------------------------------
-> **visual studio code**
-
-https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions
--------------------------------------------------------------------------------
 ## Packages to remove
 ```
 dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp totem rhythmbox evince gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
