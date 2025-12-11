@@ -56,13 +56,13 @@ systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --recovery-key
 
 **Enroll TPM**
 ```
-systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --wipe-slot=empty --tpm2-device=/dev/tpmrm0
+systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --wipe-slot=empty --tpm2-device=auto
 ```
 > Replace encryptpartitionuuid with encrypt drive's UUID, usually it's _/dev/nvme0n1p3_ if you use ssd
 
 **Update Grub**
 ```
-grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=/dev/tpmrm0"
+grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=auto"
 ```
 ```
 grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -74,7 +74,7 @@ vim /etc/crypttab
 ```
 > Edit
 ```
-luks-****** UUID none tpm2-device=/dev/tpmrm0
+luks-****** UUID none tpm2-device=auto
 ```
 
 **Update initramfs**
