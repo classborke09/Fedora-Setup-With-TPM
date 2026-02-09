@@ -70,7 +70,6 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 **Troubleshoting**
 > If you got a problem with nvidia drivers after first installed it like "NVIDIA kernel module missing. Falling back to nouveau", then just do this:
-
-``
+```
 sudo akmods --force --rebuild
-``
+```
