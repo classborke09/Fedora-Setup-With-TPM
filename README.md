@@ -68,24 +68,8 @@ grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=auto"
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-**Crypttab**
-```
-vim /etc/crypttab
-```
-> Edit
-```
-luks-****** UUID none tpm2-device=auto
-```
-
-**Update initramfs**
-```
-vim /etc/dracut.conf.d/tpm2.conf
-```
-Add 
-```
-add_dracutmodules+=" tpm2-tss "
-```
-> Exit file and update dracut
-```
-dracut -vf
-```
+**Troubleshoting**
+> If you got a problem with nvidia drivers after first installed it like "NVIDIA kernel module missing. Falling back to nouveau", then just do this:
+``
+sudo akmods --force --rebuild
+``
