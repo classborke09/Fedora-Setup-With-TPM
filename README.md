@@ -8,7 +8,7 @@ echo "yourhostname" >> /etc/hostname
 
 ## Packages to install
 ```
-dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks flatseal htop vim adw-gtk3-theme --skip-unavailable
+dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks flatseal htop btop vim adw-gtk3-theme --skip-unavailable
 ```
 
 ## Packages to remove
