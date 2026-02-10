@@ -68,8 +68,13 @@ grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=auto"
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-**Troubleshoting**
-> If you got a problem with nvidia drivers after first installed it like "NVIDIA kernel module missing. Falling back to nouveau", then just do this:
+**Troubleshooting**
+* If you got a problem with nvidia drivers after first installed it like "NVIDIA kernel module missing. Falling back to nouveau", then just do this:
 ```
 sudo akmods --force --rebuild
+```
+
+* If you have a low fps in vulkan games, for me like Counter Strike 2 despite the game use dedicated GPU as primary render instead of integrated GPU, use this command in Launch Option:
+```
+VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json %command%
 ```
