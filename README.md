@@ -6,6 +6,7 @@
 echo "yourhostname" >> /etc/hostname
 ```
 
+** Workstation
 ## Packages to install
 ```
 dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks flatseal htop btop vim adw-gtk3-theme --skip-unavailable
@@ -14,6 +15,17 @@ dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts
 ## Packages to remove
 ```
 dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
+```
+
+** Silverblue
+## Packages to install 
+```
+rpm-ostree install ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks btop vim adw-gtk3-theme vim-default-editor fprintd --skip-unavailable
+```
+
+## Packages to remove
+```
+rpm-ostree override remove yelp gnome-system-monitor nano nano-default-editor default-editor gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list gnome-clasic-session
 ```
 
 **Electron Apps**
