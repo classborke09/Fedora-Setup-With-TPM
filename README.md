@@ -15,7 +15,7 @@ dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts
 # Silverblue
 **Packages to install** 
 ```
-rpm-ostree install ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks btop vim adw-gtk3-theme vim-default-editor
+rpm-ostree install ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks btop vim adw-gtk3-theme vim-default-editor syncthing jetbrains-mono-fonts-all
 ```
 
 **Packages to remove**
