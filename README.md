@@ -76,7 +76,7 @@ grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=auto"
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-**Troubleshooting**
+## Troubleshooting
 **Nvidia** 
 * When you first install or sometime update your system, there will be a mismatch between kernel and nvidia driver make it won't load. If that the case then use this command.
 ```
