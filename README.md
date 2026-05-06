@@ -77,11 +77,13 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 **Troubleshooting**
-* If you got a problem with nvidia drivers after first installed it like "NVIDIA kernel module missing. Falling back to nouveau", then just do this:
+**Nvidia** 
+* When you first install or sometime update your system, there will be a mismatch between kernel and nvidia driver make it won't load. If that the case then use this command.
 ```
 sudo akmods --force --rebuild
 ```
 
+**Steam**
 * If you have a low fps in vulkan games, for me like Counter Strike 2 despite the game use dedicated GPU as primary render instead of integrated GPU, use this command in Launch Option:
 ```
 VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json %command%
