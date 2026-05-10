@@ -88,3 +88,9 @@ sudo akmods --force --rebuild
 ```
 VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json %command%
 ```
+
+**Gnome**
+* 'Log Out...' button dissappear?
+```
+gsettings set org.gnome.shell always-show-log-out true
+```
