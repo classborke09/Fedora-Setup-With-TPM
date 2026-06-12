@@ -1,5 +1,5 @@
 ## Update system
-> First of all, update your system. Gui or terminal, it depend on you!
+> First of all, update your system.
 
 ## Change your hostname
 ```
@@ -9,13 +9,13 @@ echo "yourhostname" >> /etc/hostname
 # Workstation
 **Packages to install and remove**
 ```
-dnf install ibus ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop vim vim-default-editor adw-gtk3-theme steam mangohud clang dmg2img thunderbird --skip-unavailable && dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
+dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop neovim adw-gtk3-theme steam mangohud clang dmg2img thunderbird nextcloud-client jetbrains-mono-fonts-all ibm-plex-fonts-all vercel-geist-fonts --skip-unavailable && dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
 ```
 
 # Silverblue
 **Packages to install** 
 ```
-rpm-ostree install ibus-bamboo qemu virt-manager swtpm android-tools default-fonts-cjk gnome-tweaks btop vim adw-gtk3-theme vim-default-editor syncthing jetbrains-mono-fonts-all
+rpm-ostree install ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks btop neovim adw-gtk3-theme syncthing jetbrains-mono-fonts-all ibm-plex-fonts-all vercel-geist-fonts steam mangohud nextcloud-client 
 ```
 
 **Packages to remove**
@@ -23,14 +23,19 @@ rpm-ostree install ibus-bamboo qemu virt-manager swtpm android-tools default-fon
 rpm-ostree override remove yelp gnome-system-monitor nano nano-default-editor default-editor gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list gnome-clasic-session
 ```
 
+# Systemd service
+```
+sudo systemctl enable virtqemud virtnetworkd virtstoraged virtnwfilterd
+```
   
 ## Electron Apps
 > This is optional but I like wayland
 
 ```
-vim /etc/environment
+nvim /etc/environment
 ```
 ```
+EDITOR=/usr/bin/nvim
 ELECTRON_OZONE_PLATFORM_HINT=auto
 ```
 
@@ -55,16 +60,9 @@ PATH        DEVICE     DRIVER
 lsblk -pf /dev/nvme0n1
 ```
 
-**Print recovery**
-> You gonna use this key to.. recover your luks device in case you being lock out
-```
-systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --recovery-key
-```
-> It will show the key with dashes and keep it somewhere safe!
-
 **Enroll TPM**
 ```
-systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --wipe-slot=empty --tpm2-device=auto
+systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --tpm2-pcrs=7 --tpm2-device=auto
 ```
 > Replace encryptpartitionuuid with encrypt drive's UUID, usually it's _/dev/nvme0n1p3_ if you use ssd
 
