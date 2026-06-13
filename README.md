@@ -6,6 +6,12 @@
 echo "yourhostname" >> /etc/hostname
 ```
 
+# Install RPM Fusion
+https://rpmfusion.org/Configuration
+
+# Install multimedia
+https://rpmfusion.org/Howto/Multimedia
+
 # Workstation
 **Packages to install and remove**
 ```
