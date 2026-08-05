@@ -15,7 +15,7 @@ https://rpmfusion.org/Howto/Multimedia
 # Workstation
 **Packages to install and remove**
 ```
-dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop neovim adw-gtk3-theme steam mangohud clang thunderbird nextcloud-client jetbrains-mono-fonts-all ibm-plex-fonts-all vercel-geist-mono-fonts --skip-unavailable && dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
+dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop vim vim-default-editor adw-gtk3-theme steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
 ```
 
 # Silverblue
@@ -46,21 +46,6 @@ ELECTRON_OZONE_PLATFORM_HINT=auto
 ```
 
 ## Setup TPM2
-**Check if tpm chip and secure boot be enable**
-```
-mokutil --sb-state
-```
-> If it show _SecureBoot enabled_. You good!
-```
-systemd-cryptenroll --tpm2-device=list
-```
-> If it show
-```
-PATH        DEVICE     DRIVER 
-/dev/tpmrm0 NT....     tpm_...
-```
-> You also good!
-
 **Find your encrypt UUID**
 ```
 lsblk -pf /dev/nvme0n1
@@ -71,14 +56,6 @@ lsblk -pf /dev/nvme0n1
 systemd-cryptenroll /dev/disk/by-uuid/encryptpartitionuuid --tpm2-pcrs=7 --tpm2-device=auto
 ```
 > Replace encryptpartitionuuid with encrypt drive's UUID, usually it's _/dev/nvme0n1p3_ if you use ssd
-
-**Update Grub**
-```
-grubby --update-kernel=ALL --args="rd.luks.options=tpm2-device=auto"
-```
-```
-grub2-mkconfig -o /boot/grub2/grub.cfg
-```
 
 ## Troubleshooting
 **Nvidia** 
