@@ -41,7 +41,6 @@ sudo systemctl enable virtqemud virtnetworkd virtstoraged virtnwfilterd
 nvim /etc/environment
 ```
 ```
-EDITOR=/usr/bin/nvim
 ELECTRON_OZONE_PLATFORM_HINT=auto
 ```
 
