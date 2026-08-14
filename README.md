@@ -74,3 +74,9 @@ VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.x86_64.json %command%
 ```
 gsettings set org.gnome.shell always-show-log-out true
 ```
+
+* Turn on hdr in GDM
+> Copy monitors.xml to /etc/xdg/ after you turn hdr on in Gnome, and monitors.xml need to contains "bt2100".
+```
+sudo cp ~/.config/monitors.xml /etc/xdg/
+```
