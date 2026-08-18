@@ -15,7 +15,7 @@ https://rpmfusion.org/Howto/Multimedia
 # Workstation
 **Packages to install and remove**
 ```
-dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop vim vim-default-editor adw-gtk3-theme steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
+dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop vim vim-default-editor adw-gtk3-theme nethogs lm_sensors steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
 ```
 
 # Silverblue
