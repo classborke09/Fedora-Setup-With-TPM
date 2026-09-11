@@ -20,7 +20,7 @@ sudo dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm
 
 # KDE
 ```
-sudo dnf install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-unikey fcitx5-configtools qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk btop vim adw-gtk3-theme nethogs lm_sensors steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && sudo dnf remove mediawriter nano kaddressbook kleopatra kmahjongg kmail kmines kmouth kontact kpatience ktnef libreoffice* akregator neochat -y && sudo dnf in vim-default-editor -y
+sudo dnf install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-unikey fcitx5-configtools qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk btop vim adw-gtk3-theme nethogs lm_sensors steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && sudo dnf remove mediawriter nano kaddressbook kleopatra kmahjongg kmail kmines kmouth kontact ktnef libreoffice* akregator neochat -y && sudo dnf in vim-default-editor -y
 ```
 
 # Silverblue
