@@ -15,7 +15,12 @@ https://rpmfusion.org/Howto/Multimedia
 # Workstation
 **Packages to install and remove**
 ```
-dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop vim vim-default-editor adw-gtk3-theme nethogs lm_sensors steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list
+sudo dnf install ibus ibus-bamboo qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk gnome-tweaks flatseal btop vim adw-gtk3-theme nethogs lm_sensors steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && sudo dnf remove gnome-connections gnome-maps mediawriter gnome-boxes yelp rhythmbox gnome-system-monitor nano gnome-shell-extension-apps-menu gnome-shell-extension-background-logo gnome-shell-extension-launch-new-instance gnome-shell-extension-places-menu gnome-shell-extension-window-list -y && sudo dnf in vim-default-editor -y
+```
+
+# KDE
+```
+sudo dnf install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-unikey fcitx5-configtools qemu virt-manager dnsmasq vde2 dmidecode swtpm android-tools default-fonts-cjk btop vim adw-gtk3-theme nethogs lm_sensors steam mangohud clang thunderbird seafile-client jetbrains-mono-fonts-all ibm-plex-fonts-all --skip-unavailable && sudo dnf remove mediawriter nano kaddressbook kleopatra kmahjongg kmail kmines kmouth kontact kpatience ktnef libreoffice* akregator neochat -y && sudo dnf in vim-default-editor -y
 ```
 
 # Silverblue
